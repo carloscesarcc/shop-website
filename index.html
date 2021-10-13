@@ -1,12 +1,186 @@
-shop
-My Account
-Search
-WOMEN
-MEN
-SHOES
-BRAND
-BRAND SWEATSHIRT
-$1000
-PREV
-NEXT
-ADD TO CART
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--FontAwesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="bg"><img src="img/background.jpg"></div>
+
+        <header>
+            
+            <p id="Logo">shop</p>
+            
+            <ul>
+                <li>My Account</li>
+                <li>Search</li>
+                <li>
+                    <i class="fas fa-shopping-bag"></i>
+                </li>
+                <li>
+                    <div class="hamburguer">
+                        <div class="line-p" id="line1"></div>
+                        <div class="line-g" id="line2"></div>
+                        <div class="line-p" id="line3"></div>
+                        <div class="line-g" id="line4"></div>
+                    </div>
+                </li>
+            </ul>
+
+        </header>
+
+        <main>
+
+            <div class="category">
+
+                <div id="cat-01" class="category-txt" onclick="btn01()">woman</div>
+                <div id="cat-02" class="category-txt" onclick="btn02()">men</div>
+                <div id="cat-03" class="category-txt" onclick="btn03()">shoes</div>
+                <div id="cat-04" class="category-txt" onclick="btn04()">brand</div>
+
+            </div>
+
+            <div class="focus">
+
+                    <p  class="focus-txt">Brand<br>Sweatshirt</p>
+                    <button id="next"><i class="fas fa-arrow-left"></i> prev</button>
+                    <p class="focus-cash">$1000</p>
+                
+            </div>
+
+            <div class="cart">
+                <button id="next">next <i class="fas fa-arrow-right"></i></button>
+                <div class="size">
+                    <p id="size-01" onclick="sz01()">s</p>
+                    <p id="size-02" onclick="sz02()">m</p>
+                    <p id="size-03" onclick="sz03()">l</p>
+                </div>
+                <div class="amount">
+                    
+                    <p id="menos">-</p>
+                    <p id="contador">1</p>
+                    <p id="mais">+</p>
+                </div>
+                <button id="cart-btn">add to cart</button>
+            </div>
+
+            <div class="social-field">
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook-f"></i>
+
+            </div>
+
+        </main>
+
+    </div>
+    <script>
+        var cat01 = document.getElementById("cat-01")
+        var cat02 = document.getElementById("cat-02")
+        var cat03 = document.getElementById("cat-03")
+        var cat04 = document.getElementById("cat-04")
+
+        function btn01(){
+            if(cat01.clicked = cat01.style.color = "#e67e34"){
+                cat02.style.color = '#6e6e6e'
+                cat03.style.color = '#6e6e6e'
+                cat04.style.color = '#6e6e6e'
+            }
+        }
+        function btn02(){
+            if(cat02.clicked = cat02.style.color = "#e67e34"){
+                cat01.style.color = '#6e6e6e'
+                cat03.style.color = '#6e6e6e'
+                cat04.style.color = '#6e6e6e'
+            }
+        }
+        function btn03(){
+            if(cat03.clicked = cat03.style.color = "#e67e34"){
+                cat01.style.color = '#6e6e6e'
+                cat02.style.color = '#6e6e6e'
+                cat04.style.color = '#6e6e6e'
+            }
+        }
+        function btn04(){
+            if(cat04.clicked = cat04.style.color = "#e67e34"){
+                cat01.style.color = '#6e6e6e'
+                cat02.style.color = '#6e6e6e'
+                cat03.style.color = '#6e6e6e'
+            }
+        }
+    /*------------------------------------------*/
+
+        var size01 = document.getElementById("size-01")
+        var size02 = document.getElementById("size-02")
+        var size03 = document.getElementById("size-03")
+
+        function sz01(){
+            if(size01.clicked = size01.style.background = "#e67e34"){
+                size01.style.color = 'white'
+               
+                size02.style.color = 'black'
+                size02.style.background = 'none'
+                size03.style.color = 'black'
+                size03.style.background = 'none'
+            }
+        }
+        function sz02(){
+            if(size02.clicked = size02.style.background = "#e67e34"){
+               size02.style.color = 'white'
+               
+               size01.style.color = 'black'
+               size01.style.background = 'none'
+               size03.style.color = 'black'
+               size03.style.background = 'none'
+            }
+        }
+        function sz03(){
+            if(size03.clicked = size03.style.background = "#e67e34"){
+               size03.style.color = 'white'
+               
+               size01.style.color = 'black'
+               size01.style.background = 'none'
+               size02.style.color = 'black'
+               size02.style.background = 'none'
+            }
+        }
+
+        /*-------------------------------------------------*/   
+        var result = 0
+
+       document.getElementById("menos").addEventListener('click', subtrair)
+       document.getElementById("mais").addEventListener('click', somar)
+
+        function somar() {
+            if(result < 9) {
+            document.getElementById("contador").innerHTML = result++;
+            }
+        }
+        function subtrair() {
+            if(result >=0) {
+            document.getElementById("contador").innerHTML = result--;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
+
+ 
+
+
+
+
