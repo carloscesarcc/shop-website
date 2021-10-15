@@ -1,23 +1,26 @@
+/*--GoogleFonts - Montserrat--*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;1,700&display=swap');
 
+:root {
+    --color01: #e67e34;
+    --color02: #6e6e6e;
+    --color03: #ff4800;
+
+    --font01: "Montserrat", sans-serif;
+}
+
+/*--Reset--*/
 * {
     padding:0;
     margin:0;
     box-sizing:border-box;
     text-decoration:none;
     list-style:none;
+    overflow:hidden;
+/*--Padrão font,transição--*/  
     font-size:10px;
     font-family:var(--font01);
-    overflow:hidden;
-    transition:.5s;
-}
-
-:root {
-    --color01: #e67e34;
-    --color02: #6e6e6e;
-    --color03: #ff6a00;
-
-    --font01: "Montserrat", sans-serif;
+    transition:.5s ease-in;
 }
 
 .container {
@@ -25,12 +28,11 @@
     height:100vh;
 }
 
-.bg {
-    width:100%;
-    height:100%;
-    position:fixed;
-    z-index: -1;
+#bg2, #bg3 {
+    display: none;
 }
+
+/*-----------------------------------------------------*/
 
 .bg img {
     width:100%;
@@ -55,6 +57,7 @@ header {
     text-transform:uppercase;
     color:white;
     background:var(--color01);
+    cursor:default;
 }
 
 ul {
@@ -76,9 +79,19 @@ ul li:hover {
 }
 
 ul li i {
-    transition:.3s;
+    transition:.1s;
     font-size:2rem;
 }
+
+.ico-small {
+    display:none;
+}
+
+.ico-small:hover {
+    color: var(--color01);
+}
+
+/*-----------------------------------------------------*/
 
 .hamburguer {
     width:1.8rem;
@@ -86,6 +99,7 @@ ul li i {
     display:flex;
     flex-direction:column;
     justify-content:space-between;
+    position:relative;
 }
 
 .hamburguer:hover .line-p, .hamburguer:hover .line-g {
@@ -108,9 +122,50 @@ ul li i {
     border-radius:30%;
 }
 
+#ul {
+    width:0;
+    height:5rem;
+    background:rgb(207, 207, 207);
+    box-shadow:1px 1px 3px rgba(0, 0, 0, 0.3),
+               1px 1px 3px inset rgba(255, 255, 255, 0.7);
+    display: none;
+    position:absolute;
+    right:9rem;
+    top:6rem;
+    z-index:100;
+    animation:anima .6s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes anima {
+    0% {
+        width:0;
+    }
+    100% {
+        width:53rem;
+    }
+}
+
+.show-menu #ul {
+    width:53rem;
+    display: flex;
+}
+
+#ul .category-txt p{
+    font-size: 1.5rem;
+    padding:4rem;
+}
+
+#ul .category-txt:hover {
+    background:var(--color01);
+    
+    text-shadow:none;
+}
+#ul .category-txt p:hover {
+    color:white;
+}
 
 
-
+/*-----------------------------------------------------*/
 
 main {
     width:100%;
@@ -128,21 +183,28 @@ main {
     justify-content: space-around; 
 }
 
-.category-txt {
+.category-txt p {
     font-size:2.5rem;
     font-weight:500;
     text-transform:uppercase;
     color:var(--color02);
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
     cursor:pointer;
 }
 
-.category-txt:hover {
+.category-txt p:hover {
     color:var(--color01);
 }
 
-.category-txt:last-child {
-    color:var(--color01)
-} 
+/*-----------------------------------------------------*/
+
+#focus01 {
+    display: block;
+}
+
+#focus02, #focus03 {
+    display: none;
+}
 
 .focus-txt {
     font-size:5rem;
@@ -156,20 +218,7 @@ main {
     font-size:2rem;
     font-weight:600;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*-----------------------------------------------------*/
 
 .cart {
     width:17rem;
@@ -181,14 +230,11 @@ main {
     margin-right:10.5rem;
 }
 
-
 .size {
     width:100%;
     display: flex;
     justify-content:space-around;
 }
-
-
 
 .size p {
     width:3rem;
@@ -239,13 +285,13 @@ main {
 }
 
 .cart #cart-btn:hover {
-    transform: scale(.9);
+    color:black;
     background:var(--color03);
 }
 
+/*---------------------------------- Botão Prev / Botão Next */
 
-
-#next {
+.btn-NP {
     width:8rem;
     height:4rem;
     color:black;
@@ -259,139 +305,31 @@ main {
     z-index: 10;
 }
 
-#next::after {
+.btn-NP::after {
     content:'';
     width:4rem;
     height:3rem;
     background: rgba(119, 119, 119, 0.3);
+    transition:.5s;
     position:absolute;
     top:.3rem;
     left:2rem;
 }
 
-#next:hover::after {
+.btn-NP:hover::after {
     width:100%;
     left:0;
     background: rgba(230, 125, 51, 0.3);
+    transition:.5s;
 }
 
-
-
-
-/*----------------------------------------------------------*/
-
-
-
-
-
-#next {
-    width:8rem;
-    height:4rem;
-    color:black;
-    background:transparent;
-    border:none;
-    font-weight: 500;
-    text-transform:uppercase;
-    word-spacing: 1rem;
-    cursor:pointer;
-    position:relative;
-    z-index: 10;
-}
-
-#next::after {
-    content:'';
-    width:4rem;
-    height:3rem;
-    background: rgba(119, 119, 119, 0.3);
-    position:absolute;
-    top:.3rem;
-    left:2rem;
-}
-
-#next::after{
-    animation: btn .9s ease;
-}
-
-#next:hover::after {
-    animation: btn .9s ease;
-    width:100%;
-    left:0;
-    background: rgba(230, 125, 51, 0.3);
-}
-
-@keyframes btn {
-    0% {
-        background: rgba(119, 119, 119, 0.3);
-    }
-    100% {
-        width:100%;
-        left:0;
-        background: rgba(230, 125, 51, 0.3);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*------------------------------------------------*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*-----------------------------------------------------*/
 
 .social-field {
     width:12rem;
     margin-top:12rem;
     display: flex;
     justify-content: space-between;
-
 }
 
 .social-field i {
@@ -402,3 +340,129 @@ main {
 .social-field i:hover {
     color:var(--color01);
 }
+
+/*-----------------------------------------------------Media Querie 1060px*/
+
+@media (max-width: 1060px) {
+    ul{
+        justify-content: space-evenly;
+    }
+    ul li {
+        text-shadow:1px 1px 1px rgba(255, 255, 255, 0.5);
+    }
+    ul li:nth-child(1), ul li:nth-child(2) {
+        display: flex;
+    }
+    ul li:nth-child(3), ul li:nth-child(4) {
+        display:none;
+    }
+    .show-menu #ul {
+        width:40rem;
+        height:3rem;
+        display: flex;
+        justify-content: space-around;
+        right:14%;
+    }
+    @keyframes anima {
+        0% {
+            width:0;
+        }
+        100% {
+            width:40rem;
+        }
+    }
+    .show-menu #ul li{
+        display: block;
+    }
+    #ul .category-txt p{
+        font-size: 1rem;
+    }
+    main {
+        display: flex;
+        flex-direction:column;
+        justify-content: space-between;
+        margin-left: 28%;
+        text-align: center;
+        align-items: center;
+    }
+    .cart {
+        margin-left: 10rem;
+    }
+    .category {
+        display: none;
+    }
+    .focus-txt {
+        font-size: 2.3rem;
+        text-shadow:1px 1px 1px rgba(0, 0, 0, 0.4);
+    }
+    .focus-cash {
+        font-size:1.5rem;
+    }
+    .btn-NP {
+        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    }
+    .size p {
+        text-shadow:1px 1px 1px rgba(255, 255, 255,.5);
+        border:1px solid white;
+    }
+    .social-field {
+        margin-top: 1rem;
+    }
+    .social-field i {
+        color:var(--color01);
+        text-shadow:1px 1px 1px rgba(0, 0, 0, 0.3);
+    }
+    .social-field i:hover {
+        color:var(--color02);
+    }
+}
+
+/*-----------------------------------------------------Media Querie 650px*/
+
+@media (max-width: 650px) {
+    ul {
+        justify-content: space-around;
+    }
+    #Logo {
+        opacity: .6;
+        transform: scale(.5);
+        position:fixed;
+        top:-1.3rem;
+        left:-1.3rem;
+    }
+    .show-menu #ul {
+        width:11rem;
+        height:20rem;
+        display: flex;
+        flex-direction: column;
+        top:4rem;
+        right:1rem;
+        opacity: .9;
+        animation:anima .6s backwards;
+    }
+    #ul .category-txt p  {
+        padding:2rem 10rem;
+    }
+    @keyframes anima {
+        0% {
+            height:0;
+        }
+        100% {
+            height:20rem;
+        }
+    }
+    main {
+        margin-left: 0;
+        margin-top:2rem;
+        text-align: left;
+        align-items: left;
+        justify-content: center;
+    }
+    .cart {
+        margin-top:50rem;
+    }
+    .focus {
+        margin-top:0;
+    }
+}
+/*-----------------------------------------------------------------------------------*/
