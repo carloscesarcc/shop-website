@@ -1,7 +1,13 @@
+Meu nome é Carlos Cesar, Sou Novato no mundo da programação e desenvolvimento web, Comecei estudar HTML e CSS no final de Fevereiro de 2021, e foi amor a primeira vista =D, Estou fazendo essas challenge pra ir me testando e desafiando.
+
+Para qualquer critica construtiva ou ajuda, sinta-se a vontade!
+
 #Mudanças do projeto original
 
   *Disposição do botão "prev" 
+
   *adição de fotos das sessões
+  
   *Responsividade
 
 #Creditos

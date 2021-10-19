@@ -111,8 +111,7 @@
     function somar() {
         var i = document.getElementById("contador").innerHTML = intensCarrinho;
         if(intensCarrinho == 9){
-            window.alert("carrinho cheio!", intensCarrinho);
-            document.getElementById("contador").innerHTML = intensCarrinho;              
+            window.alert("carrinho cheio!", intensCarrinho);  
         } else {
             i++;
             intensCarrinho = i;
@@ -125,7 +124,6 @@
         var i = document.getElementById("contador").innerHTML = intensCarrinho;  
         if(intensCarrinho == 0){  
             window.alert("carrinho vazio!", intensCarrinho);
-            document.getElementById("contador").innerHTML = intensCarrinho;  
         } else {
             i--;
             intensCarrinho = i;
